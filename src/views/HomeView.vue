@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>게시글 목록입니다</h1>
+        <a v-for="num in number" :key="num">
+            <router-link class="list" :to="`/${num}`">{{num}}</router-link>  | 
+        </a>
+
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld
+  data () {
+    return {
+      number : 3,
+    }
   }
 }
 </script>
+
+<style scoped>
+  .list {
+    color:darkblue;
+    text-decoration-line: none;
+    font-size: 20px;
+  }
+
+  .list:hover {
+    color: red;
+  }
+</style>
